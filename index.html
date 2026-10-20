@@ -506,8 +506,40 @@
             url += `&size=${encodeURIComponent(selectedSize)}`;
         }
 
-        const res = await fetch(url);
-        allProducts = await res.json();
+        let products = [];
+        
+        try {
+            // Thử gọi API từ server Python trước
+            const res = await fetch(url);
+            if (!res.ok) throw new Error("API server không khả dụng");
+            products = await res.json();
+        } catch (apiErr) {
+            console.warn("Không gọi được API server, đang chuyển sang đọc tệp products.json dự phòng...", apiErr);
+            
+            // Fallback: Đọc trực tiếp từ file products.json tĩnh trên Vercel / Local
+            const resJson = await fetch('products.json');
+            products = await resJson.json();
+
+            // Lọc thủ công ở phía client nếu đang dùng file tĩnh dự phòng
+            products = products.filter(p => {
+                // Lọc theo danh mục
+                if (currentCategory && currentCategory !== 'all' && p.category !== currentCategory) {
+                    return false;
+                }
+                // Lọc theo từ khóa tìm kiếm
+                if (search && !p.name.toLowerCase().includes(search.toLowerCase())) {
+                    return false;
+                }
+                // Lọc theo thương hiệu
+                if (selectedBrand && p.brand !== selectedBrand) {
+                    return false;
+                }
+                return true;
+            });
+        }
+
+        // Lưu vào biến toàn cục nếu cần
+        allProducts = products;
 
         const grid = document.getElementById('product-grid');
         if (!allProducts || allProducts.length === 0) {
@@ -539,8 +571,13 @@
                 </div>
             `;
         }).join('');
+
     } catch (err) {
         console.error("Lỗi tải sản phẩm:", err);
+        const grid = document.getElementById('product-grid');
+        if (grid) {
+            grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding: 40px; color:#ef4444;">Đã có lỗi xảy ra khi tải danh sách sản phẩm.</p>';
+        }
     }
 }
 
