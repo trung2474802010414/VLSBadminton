@@ -1,0 +1,1013 @@
+
+[
+  {
+    "id": 1,
+    "name": "Vợt Cầu Lông Li-Ning Axforce 100 Golden Kirin",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 5200000,
+    "image": "IMG_VOT_LINING_1",
+    "badge": "CAO CẤP",
+    "sale_percent": 10
+  },
+  {
+    "id": 2,
+    "name": "Vợt Cầu Lông Li-Ning Axforce 90 Đỏ Dragon Max",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 4650000,
+    "image": "IMG_VOT_LINING_1",
+    "badge": "HOT",
+    "sale_percent": 15
+  },
+  {
+    "id": 3,
+    "name": "Vợt Cầu Lông Li-Ning Axforce 90 Xanh Tiger Max",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 4600000,
+    "image": "IMG_VOT_LINING_2",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 4,
+    "name": "Vợt Cầu Lông Li-Ning Axforce 80 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 4150000,
+    "image": "IMG_VOT_LINING_2",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 5,
+    "name": "Vợt Cầu Lông Li-Ning Axforce 70 Trắng Bạc",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 3850000,
+    "image": "IMG_VOT_LINING_3",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 6,
+    "name": "Vợt Cầu Lông Li-Ning Axforce 60 Trắng Xanh",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 3100000,
+    "image": "IMG_VOT_LINING_4",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 7,
+    "name": "Vợt Cầu Lông Li-Ning Axforce 50 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 2450000,
+    "image": "IMG_VOT_LINING_5",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 8,
+    "name": "Vợt Cầu Lông Li-Ning Axforce 40 Đen Đỏ",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 1950000,
+    "image": "IMG_VOT_LINING_2",
+    "badge": "GIÁ TỐT",
+    "sale_percent": 20
+  },
+  {
+    "id": 9,
+    "name": "Vợt Cầu Lông Li-Ning Axforce Cannon Trắng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 1050000,
+    "image": "IMG_VOT_LINING_3",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 10,
+    "name": "Vợt Cầu Lông Li-Ning Axforce Cannon Đen",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 1050000,
+    "image": "IMG_VOT_LINING_2",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 11,
+    "name": "Vợt Cầu Lông Li-Ning Halbertec 9000 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 4800000,
+    "image": "IMG_VOT_LINING_3",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 12,
+    "name": "Vợt Cầu Lông Li-Ning Halbertec 8000 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 4100000,
+    "image": "IMG_VOT_LINING_3",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 13,
+    "name": "Vợt Cầu Lông Li-Ning Halbertec 7000 Cam Xanh",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 3650000,
+    "image": "IMG_VOT_LINING_4",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 14,
+    "name": "Vợt Cầu Lông Li-Ning Halbertec 6000 Hồng Trắng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 2950000,
+    "image": "IMG_VOT_LINING_3",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 15,
+    "name": "Vợt Cầu Lông Li-Ning Halbertec 5000 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 2200000,
+    "image": "IMG_VOT_LINING_5",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 16,
+    "name": "Vợt Cầu Lông Li-Ning Halbertec Motor Đỏ",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 1150000,
+    "image": "IMG_VOT_LINING_1",
+    "badge": "GIÁ TỐT",
+    "sale_percent": 0
+  },
+  {
+    "id": 17,
+    "name": "Vợt Cầu Lông Li-Ning Bladex 900 Sun Max",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 4450000,
+    "image": "IMG_VOT_LINING_4",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 18,
+    "name": "Vợt Cầu Lông Li-Ning Bladex 900 Moon Max",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 4450000,
+    "image": "IMG_VOT_LINING_4",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 19,
+    "name": "Vợt Cầu Lông Li-Ning Bladex 800 Đỏ Xanh",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 3900000,
+    "image": "IMG_VOT_LINING_4",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 20,
+    "name": "Vợt Cầu Lông Li-Ning Aeronaut 9000C Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 4200000,
+    "image": "IMG_VOT_LINING_5",
+    "badge": "HUYỀN THOẠI",
+    "sale_percent": 0
+  },
+  {
+    "id": 21,
+    "name": "Vợt Cầu Lông Li-Ning Tectonic 7 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 3550000,
+    "image": "IMG_VOT_LINING_5",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 22,
+    "name": "Vợt Cầu Lông Li-Ning Calibar 300B Xám Đỏ",
+    "brand": "Li-Ning",
+    "category": "vot",
+    "price": 1650000,
+    "image": "IMG_VOT_LINING_1",
+    "badge": "GIÁ TỐT",
+    "sale_percent": 0
+  },
+  {
+    "id": 23,
+    "name": "Vợt Cầu Lông Yonex Astrox 100ZZ Kurenai Đỏ",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4350000,
+    "image": "IMG_VOT_YONEX_2",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 10
+  },
+  {
+    "id": 24,
+    "name": "Vợt Cầu Lông Yonex Astrox 100ZZ Dark Navy",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4400000,
+    "image": "IMG_VOT_YONEX_2",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 25,
+    "name": "Vợt Cầu Lông Yonex Astrox 99 Pro Đỏ Cherry",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4150000,
+    "image": "IMG_VOT_YONEX_3",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 26,
+    "name": "Vợt Cầu Lông Yonex Astrox 99 Pro Trắng Tiger",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4150000,
+    "image": "IMG_VOT_YONEX_3",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 27,
+    "name": "Vợt Cầu Lông Yonex Astrox 88D Pro 2024 Đen Bạc",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4250000,
+    "image": "IMG_VOT_YONEX_1",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 28,
+    "name": "Vợt Cầu Lông Yonex Astrox 88S Pro 2024 Xanh Bạc",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4200000,
+    "image": "IMG_VOT_YONEX_4",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 29,
+    "name": "Vợt Cầu Lông Yonex Astrox 77 Pro Cam Đỏ",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 3850000,
+    "image": "IMG_VOT_YONEX_1",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 30,
+    "name": "Vợt Cầu Lông Yonex Nanoflare 1000Z Vàng Đen",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4300000,
+    "image": "IMG_VOT_YONEX_4",
+    "badge": "SIÊU TỐC ĐỘ",
+    "sale_percent": 0
+  },
+  {
+    "id": 31,
+    "name": "Vợt Cầu Lông Yonex Nanoflare 800 Pro Xanh Đậm",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4050000,
+    "image": "IMG_VOT_YONEX_1",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 32,
+    "name": "Vợt Cầu Lông Yonex Nanoflare 700 Đỏ Đen",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 3450000,
+    "image": "IMG_VOT_YONEX_3",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 33,
+    "name": "Vợt Cầu Lông Yonex Arcsaber 11 Pro Xám Đỏ",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 4100000,
+    "image": "IMG_VOT_YONEX_4",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 34,
+    "name": "Vợt Cầu Lông Yonex Arcsaber 7 Pro Vàng Xám",
+    "brand": "Yonex",
+    "category": "vot",
+    "price": 3750000,
+    "image": "IMG_VOT_YONEX_4",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 35,
+    "name": "Vợt Cầu Lông Victor Thruster Ryuga II Tím Đen",
+    "brand": "Victor",
+    "category": "vot",
+    "price": 3650000,
+    "image": "IMG_VOT_VICTOR",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 36,
+    "name": "Vợt Cầu Lông Victor Thruster Ryuga Metallic",
+    "brand": "Victor",
+    "category": "vot",
+    "price": 3950000,
+    "image": "IMG_VOT_VICTOR",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 37,
+    "name": "Vợt Cầu Lông Victor Auraspeed 100X Chính Hãng",
+    "brand": "Victor",
+    "category": "vot",
+    "price": 3600000,
+    "image": "IMG_VOT_VICTOR",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 38,
+    "name": "Vợt Cầu Lông Victor Brave Sword 12 Xanh Huyền Thoại",
+    "brand": "Victor",
+    "category": "vot",
+    "price": 2950000,
+    "image": "IMG_VOT_VICTOR",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 39,
+    "name": "Vợt Cầu Lông Kumpoo Power Control K520 Pro Trắng",
+    "brand": "Kumpoo",
+    "category": "vot",
+    "price": 650000,
+    "image": "IMG_VOT_LINING_3",
+    "badge": "SINH VIÊN",
+    "sale_percent": 10
+  },
+  {
+    "id": 40,
+    "name": "Vợt Cầu Lông Kumpoo Power Control K520 Pro Đen",
+    "brand": "Kumpoo",
+    "category": "vot",
+    "price": 650000,
+    "image": "IMG_VOT_LINING_2",
+    "badge": "SINH VIÊN",
+    "sale_percent": 0
+  },
+  {
+    "id": 41,
+    "name": "Giày Cầu Lông Yonex Velo 200 Đỏ Đen Chính Hãng",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 1250000,
+    "image": "IMG_GIAY_YONEX_1",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 10
+  },
+  {
+    "id": 42,
+    "name": "Giày Cầu Lông Yonex Velo 200 Trắng Xanh Navy",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 1250000,
+    "image": "IMG_GIAY_YONEX_3",
+    "badge": "GIÁ TỐT",
+    "sale_percent": 0
+  },
+  {
+    "id": 43,
+    "name": "Giày Cầu Lông Yonex Velo 200 Xanh Chuối",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 1250000,
+    "image": "IMG_GIAY_YONEX_2",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 44,
+    "name": "Giày Cầu Lông Yonex SHB 65Z3 Men Trắng Đỏ",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 2650000,
+    "image": "IMG_GIAY_YONEX_1",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 45,
+    "name": "Giày Cầu Lông Yonex SHB 65Z3 Momota Đen Vàng",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 2700000,
+    "image": "IMG_GIAY_YONEX_2",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 46,
+    "name": "Giày Cầu Lông Yonex SHB 65Z3 Wide Trắng Xanh",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 2650000,
+    "image": "IMG_GIAY_YONEX_3",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 47,
+    "name": "Giày Cầu Lông Yonex Aerus Z2 Xanh Bạc Hà",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 2750000,
+    "image": "IMG_GIAY_YONEX_3",
+    "badge": "SIÊU NHẸ",
+    "sale_percent": 0
+  },
+  {
+    "id": 48,
+    "name": "Giày Cầu Lông Yonex Aerus Z2 Cam Đỏ",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 2750000,
+    "image": "IMG_GIAY_YONEX_1",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 49,
+    "name": "Giày Cầu Lông Yonex Eclipsion Z3 Trắng Vàng",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 2800000,
+    "image": "IMG_GIAY_YONEX_3",
+    "badge": "ÊM ÁI",
+    "sale_percent": 0
+  },
+  {
+    "id": 50,
+    "name": "Giày Cầu Lông Yonex Comfort Z3 Đen Đỏ",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 2700000,
+    "image": "IMG_GIAY_YONEX_2",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 51,
+    "name": "Giày Cầu Lông Yonex Tokyo 4 Trắng Đỏ",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 1090000,
+    "image": "IMG_GIAY_YONEX_1",
+    "badge": "GIÁ TỐT",
+    "sale_percent": 0
+  },
+  {
+    "id": 52,
+    "name": "Giày Cầu Lông Yonex Akayu Super 6 Đen Xanh",
+    "brand": "Yonex",
+    "category": "giay",
+    "price": 990000,
+    "image": "IMG_GIAY_YONEX_2",
+    "badge": "SINH VIÊN",
+    "sale_percent": 0
+  },
+  {
+    "id": 53,
+    "name": "Giày Cầu Lông Li-Ning AYAT005-1 Đen Đỏ",
+    "brand": "Li-Ning",
+    "category": "giay",
+    "price": 2150000,
+    "image": "IMG_GIAY_LINING",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 54,
+    "name": "Giày Cầu Lông Li-Ning AYAT005-2 Trắng Xanh",
+    "brand": "Li-Ning",
+    "category": "giay",
+    "price": 2150000,
+    "image": "IMG_GIAY_LINING",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 55,
+    "name": "Giày Cầu Lông Li-Ning Blade Pro AYAT001 Trắng",
+    "brand": "Li-Ning",
+    "category": "giay",
+    "price": 2850000,
+    "image": "IMG_GIAY_LINING",
+    "badge": "CAO CẤP",
+    "sale_percent": 0
+  },
+  {
+    "id": 56,
+    "name": "Giày Cầu Lông Li-Ning Yun Ting AYAT003 Đỏ",
+    "brand": "Li-Ning",
+    "category": "giay",
+    "price": 2950000,
+    "image": "IMG_GIAY_LINING",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 57,
+    "name": "Giày Cầu Lông Li-Ning Halberd III Lite Trắng Hồng",
+    "brand": "Li-Ning",
+    "category": "giay",
+    "price": 1650000,
+    "image": "IMG_GIAY_LINING",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 58,
+    "name": "Giày Cầu Lông Li-Ning Saga Lite 6 Đen Vàng",
+    "brand": "Li-Ning",
+    "category": "giay",
+    "price": 1350000,
+    "image": "IMG_GIAY_LINING",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 59,
+    "name": "Giày Cầu Lông Li-Ning Almighty V 2.0 Trắng Đen",
+    "brand": "Li-Ning",
+    "category": "giay",
+    "price": 1290000,
+    "image": "IMG_GIAY_LINING",
+    "badge": "GIÁ TỐT",
+    "sale_percent": 0
+  },
+  {
+    "id": 60,
+    "name": "Giày Cầu Lông Li-Ning Sound Wave III Xanh",
+    "brand": "Li-Ning",
+    "category": "giay",
+    "price": 1150000,
+    "image": "IMG_GIAY_LINING",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 61,
+    "name": "Giày Cầu Lông Victor A970 Nitrolite Đen Đỏ",
+    "brand": "Victor",
+    "category": "giay",
+    "price": 2550000,
+    "image": "IMG_GIAY_VICTOR",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 62,
+    "name": "Giày Cầu Lông Victor P9200II Trắng Vàng",
+    "brand": "Victor",
+    "category": "giay",
+    "price": 2350000,
+    "image": "IMG_GIAY_VICTOR",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 63,
+    "name": "Giày Cầu Lông Victor A362II Xanh Navy",
+    "brand": "Victor",
+    "category": "giay",
+    "price": 1250000,
+    "image": "IMG_GIAY_VICTOR",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 64,
+    "name": "Giày Cầu Lông Mizuno Wave Claw 3 Trắng Xanh",
+    "brand": "Mizuno",
+    "category": "giay",
+    "price": 2650000,
+    "image": "IMG_GIAY_YONEX_3",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 65,
+    "name": "Giày Cầu Lông Mizuno Wave Fang Pro Trắng Vàng",
+    "brand": "Mizuno",
+    "category": "giay",
+    "price": 2950000,
+    "image": "IMG_GIAY_YONEX_3",
+    "badge": "CAO CẤP",
+    "sale_percent": 0
+  },
+  {
+    "id": 66,
+    "name": "Giày Cầu Lông Mizuno Sky Blaster 3 Đen Trắng",
+    "brand": "Mizuno",
+    "category": "giay",
+    "price": 1450000,
+    "image": "IMG_GIAY_YONEX_2",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 67,
+    "name": "Giày Cầu Lông Mizuno Thunder Blade Z Đỏ Đen",
+    "brand": "Mizuno",
+    "category": "giay",
+    "price": 1650000,
+    "image": "IMG_GIAY_YONEX_1",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 68,
+    "name": "Giày Cầu Lông Kumpoo KH-E53 Trắng Đỏ",
+    "brand": "Kumpoo",
+    "category": "giay",
+    "price": 790000,
+    "image": "IMG_GIAY_YONEX_1",
+    "badge": "SINH VIÊN",
+    "sale_percent": 0
+  },
+  {
+    "id": 69,
+    "name": "Giày Cầu Lông Kumpoo KH-E83 Kem Xanh",
+    "brand": "Kumpoo",
+    "category": "giay",
+    "price": 850000,
+    "image": "IMG_GIAY_YONEX_3",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 70,
+    "name": "Giày Cầu Lông Kawasaki 086 Trắng Đỏ",
+    "brand": "Kawasaki",
+    "category": "giay",
+    "price": 750000,
+    "image": "IMG_GIAY_YONEX_1",
+    "badge": "GIÁ TỐT",
+    "sale_percent": 0
+  },
+  {
+    "id": 71,
+    "name": "Ống Cầu Lông Hải Yến S90 Chính Hãng {12 Quả}",
+    "brand": "Hải Yến",
+    "category": "phukien",
+    "price": 245000,
+    "image": "IMG_PK_CAU",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 5
+  },
+  {
+    "id": 72,
+    "name": "Ống Cầu Lông Hải Yến Đỏ Xanh {12 Quả}",
+    "brand": "Hải Yến",
+    "category": "phukien",
+    "price": 235000,
+    "image": "IMG_PK_CAU",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 73,
+    "name": "Ống Cầu Lông Thành Công Đỏ Chính Hãng {12 Quả}",
+    "brand": "Thành Công",
+    "category": "phukien",
+    "price": 255000,
+    "image": "IMG_PK_CAU",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 74,
+    "name": "Ống Cầu Lông Vina Star Đỏ {12 Quả}",
+    "brand": "Vina Star",
+    "category": "phukien",
+    "price": 240000,
+    "image": "IMG_PK_CAU",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 75,
+    "name": "Ống Cầu Lông Ba Sao Pro {12 Quả}",
+    "brand": "Ba Sao",
+    "category": "phukien",
+    "price": 230000,
+    "image": "IMG_PK_CAU",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 76,
+    "name": "Ống Cầu Lông Nhựa Yonex Mavis 600 {6 Quả}",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 320000,
+    "image": "IMG_PK_CAU",
+    "badge": "BỀN BỈ",
+    "sale_percent": 0
+  },
+  {
+    "id": 77,
+    "name": "Ống Cầu Lông Yonex Aerosensa 30 {12 Quả}",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 680000,
+    "image": "IMG_PK_CAU",
+    "badge": "THI ĐẤU",
+    "sale_percent": 0
+  },
+  {
+    "id": 78,
+    "name": "Cước Đan Vợt Yonex BG65 Titanium Chính Hãng",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 150000,
+    "image": "IMG_PK_CUOC",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 79,
+    "name": "Cước Đan Vợt Yonex BG66 Ultimax Trợ Lực Đỉnh",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 185000,
+    "image": "IMG_PK_CUOC",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 80,
+    "name": "Cước Đan Vợt Yonex Exbolt 63 Tiếng Nổ Đanh",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 200000,
+    "image": "IMG_PK_CUOC",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 81,
+    "name": "Cước Đan Vợt Yonex Exbolt 65 Chính Hãng",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 200000,
+    "image": "IMG_PK_CUOC",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 82,
+    "name": "Cước Đan Vợt Yonex Aerobite Kiểm Soát Cầu",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 220000,
+    "image": "IMG_PK_CUOC",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 83,
+    "name": "Cước Đan Vợt Li-Ning No.1 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 160000,
+    "image": "IMG_PK_CUOC",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 84,
+    "name": "Cước Đan Vợt Li-Ning N65 Trợ Lực Cao",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 175000,
+    "image": "IMG_PK_CUOC",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 85,
+    "name": "Cuốn Cán Vợt Yonex AC102EX Chính Hãng {Vỉ 3 Cái}",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 160000,
+    "image": "IMG_PK_QUANCAN",
+    "badge": "HOT",
+    "sale_percent": 10
+  },
+  {
+    "id": 86,
+    "name": "Cuốn Cán Vợt Vải Li-Ning GC001 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 45000,
+    "image": "IMG_PK_QUANCAN",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 87,
+    "name": "Cuốn Cán Vợt VS Chính Hãng Chống Trơn {1 Cái}",
+    "brand": "VS",
+    "category": "phukien",
+    "price": 20000,
+    "image": "IMG_PK_QUANCAN",
+    "badge": "GIÁ RẺ",
+    "sale_percent": 0
+  },
+  {
+    "id": 88,
+    "name": "Cuốn Cán Vợt Joto Đủ Màu {Hộp 60 Cái}",
+    "brand": "Joto",
+    "category": "phukien",
+    "price": 450000,
+    "image": "IMG_PK_QUANCAN",
+    "badge": "TIẾT KIỆM",
+    "sale_percent": 0
+  },
+  {
+    "id": 89,
+    "name": "Balo Cầu Lông Li-Ning ABSR142 Đen Đỏ",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 850000,
+    "image": "IMG_PK_BALO",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 90,
+    "name": "Balo Cầu Lông Li-Ning ABST059 Trắng Đen",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 920000,
+    "image": "IMG_PK_BALO",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 91,
+    "name": "Balo Cầu Lông Yonex BAG2218T Đen Vàng",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 780000,
+    "image": "IMG_PK_BALO",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 92,
+    "name": "Bao Vợt Cầu Lông Li-Ning ABJT055 Đỏ Dragon",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 1350000,
+    "image": "IMG_PK_BAOVOT",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 93,
+    "name": "Bao Vợt Cầu Lông Yonex BA92226EX Xanh Đen",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 1450000,
+    "image": "IMG_PK_BAOVOT",
+    "badge": "CAO CẤP",
+    "sale_percent": 0
+  },
+  {
+    "id": 94,
+    "name": "Bao Vợt Cầu Lông Victor BR9613 Trắng Tím",
+    "brand": "Victor",
+    "category": "phukien",
+    "price": 1150000,
+    "image": "IMG_PK_BAOVOT",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 95,
+    "name": "Bao Vợt Cầu Lông Vuông Yonex 22931WT Trắng Xanh",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 650000,
+    "image": "IMG_PK_BAOVOT",
+    "badge": "HOT",
+    "sale_percent": 0
+  },
+  {
+    "id": 96,
+    "name": "Vớ Cầu Lông Yonex Cổ Cao Dày Chống Trượt",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 65000,
+    "image": "IMG_PK_QUANCAN",
+    "badge": "BÁN CHẠY",
+    "sale_percent": 0
+  },
+  {
+    "id": 97,
+    "name": "Vớ Cầu Lông Li-Ning AWSR125 Chính Hãng",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 95000,
+    "image": "IMG_PK_QUANCAN",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 98,
+    "name": "Băng Cổ Tay Chặn Mồ Hôi Li-Ning LQAH394",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 75000,
+    "image": "IMG_PK_QUANCAN",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 99,
+    "name": "Đai Bảo Vệ Đầu Gối Cầu Lông Li-Ning AQAH182",
+    "brand": "Li-Ning",
+    "category": "phukien",
+    "price": 210000,
+    "image": "IMG_PK_QUANCAN",
+    "badge": "",
+    "sale_percent": 0
+  },
+  {
+    "id": 100,
+    "name": "Bình Nước Thể Thao Cầu Lông Yonex 1000ml",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 180000,
+    "image": "IMG_PK_BALO",
+    "badge": "MỚI",
+    "sale_percent": 0
+  },
+  {
+    "id": 101,
+    "name": "Bình Nước Thể Thao Cầu Lông Yonex 1000ml",
+    "brand": "Yonex",
+    "category": "phukien",
+    "price": 180000,
+    "image": "IMG_PK_BALO",
+    "badge": "MỚI",
+    "sale_percent": 0
+  }
+]
