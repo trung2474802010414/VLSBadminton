@@ -50,15 +50,32 @@ class BadmintonShopHandler(BaseHTTPRequestHandler):
             file_path = path.lstrip("/")
             if os.path.exists(file_path):
                 with open(file_path, "r", encoding="utf-8") as f:
-                    self._send_response(
-                        f.read(), 200, "application/javascript"
-                    )
+                    self._send_response(f.read(), 200, "application/javascript")
+            else:
+                self._send_response("404 Not Found", 404, "text/plain")
+
+        elif path.endswith(".css"):
+            file_path = path.lstrip("/")
+            if os.path.exists(file_path):
+                with open(file_path, "r", encoding="utf-8") as f:
+                    self._send_response(f.read(), 200, "text/css")
+            else:
+                self._send_response("404 Not Found", 404, "text/plain")
+
+        elif path.endswith(".js"):
+            file_path = path.lstrip("/")
+            if os.path.exists(file_path):
+                with open(file_path, "r", encoding="utf-8") as f:
+                    self._send_response(f.read(), 200, "application/javascript")
             else:
                 self._send_response("404 Not Found", 404, "text/plain")
 
         elif path == "/api/products":
             category = query_params.get("category", ["all"])[0]
             search = query_params.get("search", [""])[0].strip()
+            brand_param = query_params.get("brand", [""])[0].strip()
+            prices_raw = query_params.get("prices", [""])[0]
+            size_param = query_params.get("size", [""])[0].strip()
 
             query = {}
             if category == "sale":
@@ -69,6 +86,45 @@ class BadmintonShopHandler(BaseHTTPRequestHandler):
             if search:
                 regex = re.compile(re.escape(search), re.IGNORECASE)
                 query["$or"] = [{"name": regex}, {"brand": regex}]
+
+            # Lọc theo 1 Thương hiệu duy nhất
+            if brand_param:
+                query["brand"] = {"$regex": re.escape(brand_param), "$options": "i"}
+
+            # Lọc theo Size giày (đã kiểm tra tránh lỗi null)
+            if size_param and size_param != "null" and size_param != "":
+                size_regex = re.compile(re.escape(size_param), re.IGNORECASE)
+                size_query = [{"size": size_regex}, {"name": size_regex}]
+                if "$or" in query:
+                    query = {"$and": [query, {"$or": size_query}]}
+                else:
+                    query["$or"] = size_query
+
+            # Lọc theo Mức giá
+            if prices_raw:
+                try:
+                    prices_list = json.loads(prices_raw)
+                    price_conditions = []
+                    for p_str in prices_list:
+                        p_lower = p_str.lower()
+                        if "dưới 500" in p_lower:
+                            price_conditions.append({"price": {"$lt": 500000}})
+                        elif "500.000đ - 1 triệu" in p_lower or "500.000" in p_lower:
+                            price_conditions.append({"price": {"$gte": 500000, "$lte": 1000000}})
+                        elif "1 - 2 triệu" in p_lower:
+                            price_conditions.append({"price": {"$gte": 1000000, "$lte": 2000000}})
+                        elif "2 - 3 triệu" in p_lower:
+                            price_conditions.append({"price": {"$gte": 2000000, "$lte": 3000000}})
+                        elif "trên 3 triệu" in p_lower:
+                            price_conditions.append({"price": {"$gt": 3000000}})
+                    
+                    if price_conditions:
+                        if "$or" in query:
+                            query = {"$and": [query, {"$or": price_conditions}]}
+                        else:
+                            query["$or"] = price_conditions
+                except:
+                    pass
 
             products = list(products_col.find(query, {"_id": 0}).sort("id", 1))
             self._send_response(products, 200, "application/json")
@@ -82,7 +138,7 @@ class BadmintonShopHandler(BaseHTTPRequestHandler):
             self._send_response(bank if bank else {}, 200, "application/json")
 
         else:
-            self._send_response("404 Not Found", 404, "text/plain")
+            self._send_response({"error": "Not found"}, 404, "application/json")
 
     def do_POST(self):
         content_length = int(self.headers.get("Content-Length", 0))
