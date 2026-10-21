@@ -13,3 +13,4 @@ products_col.delete_many({})
 if products_data:
     products_col.insert_many(products_data)
     print(f"Đã nạp thành công {len(products_data)} sản phẩm vào MongoDB!")
+    

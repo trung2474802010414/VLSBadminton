@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - VLSBadminton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="product.css">
+    
+</head>
+<body>
+
+    <!-- Header đơn giản điều hướng -->
+    <div style="background: #0f172a; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155;">
+        <a href="/" style="color: #f97316; font-weight: 800; font-size: 20px; text-decoration: none;">🏸 VLSBADMINTON</a>
+        <a href="/" style="color: #fff; text-decoration: none; font-weight: 600;">← Quay về trang chủ</a>
+    </div>
+
+    <div class="product-detail-container" id="productDetailContent">
+        <p style="text-align:center; padding: 50px; color: #64748b;">Đang tải thông tin sản phẩm...</p>
+    </div>
+
+    <script>
+        let currentProduct = null;
+        let selectedSize = '40'; // Mặc định size
+
+        async function loadProductDetail() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            if (!productId) {
+                document.getElementById('productDetailContent').innerHTML = '<p style="text-align:center; color:red;">Không tìm thấy sản phẩm!</p>';
+                return;
+            }
+
+            try {
+                // Lấy danh sách sản phẩm từ API server
+                const res = await fetch('/api/products?category=all&search=');
+                const products = await res.json();
+                
+                currentProduct = products.find(p => p.id == productId);
+
+                if (!currentProduct) {
+                    document.getElementById('productDetailContent').innerHTML = '<p style="text-align:center; color:red;">Sản phẩm không tồn tại trong hệ thống.</p>';
+                    return;
+                }
+
+                // Tính giá sale nếu có
+                const finalPrice = currentProduct.sale_percent > 0 
+                    ? Math.round(currentProduct.price * (100 - currentProduct.sale_percent) / 100) 
+                    : currentProduct.price;
+
+                const container = document.getElementById('productDetailContent');
+                container.innerHTML = `
+                    <div class="detail-grid">
+                        <div class="detail-image-box">
+                            <img src="${currentProduct.image}" alt="${currentProduct.name}" referrerpolicy="no-referrer">
+                        </div>
+                        <div class="detail-info">
+                            <div class="detail-meta">Thương hiệu: <span>${currentProduct.brand}</span> | Danh mục: <span>${currentProduct.category}</span></div>
+                            <h1>${currentProduct.name}</h1>
+                            
+                            <div class="detail-price-box">
+                                <div class="detail-price">${formatMoney(finalPrice)} đ</div>
+                                ${currentProduct.sale_percent > 0 ? `<div class="detail-old-price">${formatMoney(currentProduct.price)} đ</div><span style="background:#ef4444; color:#fff; padding:3px 8px; border-radius:4px; font-weight:700; font-size:12px;">-${currentProduct.sale_percent}%</span>` : ''}
+                            </div>
+
+                            ${currentProduct.category === 'giay' ? `
+                                <div class="option-group">
+                                    <label class="option-label">Chọn Size (EU):</label>
+                                    <div class="size-list">
+                                        <button class="size-btn" onclick="selectSize(this, '39')">39</button>
+                                        <button class="size-btn active" onclick="selectSize(this, '40')">40</button>
+                                        <button class="size-btn" onclick="selectSize(this, '41')">41</button>
+                                        <button class="size-btn" onclick="selectSize(this, '42')">42</button>
+                                        <button class="size-btn" onclick="selectSize(this, '43')">43</button>
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            <div class="action-buttons">
+                                <button class="btn-buy-now" onclick="buyNowDetail()">MUA NGAY</button>
+                                <button class="btn-add-cart" onclick="addToCartDetail()">THÊM VÀO GIỎ HÀNG</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-box">
+                        <h3>MÔ TẢ SẢN PHẨM & THÔNG SỐ</h3>
+                        <p style="color: #cbd5e1; line-height: 1.6;">
+                            Sản phẩm chính hãng <strong>${currentProduct.name}</strong> thuộc thương hiệu ${currentProduct.brand}, thiết kế chuyên dụng hỗ trợ tối đa cho người chơi cầu lông với độ bền cao, êm ái và bảo vệ cổ chân, khớp gối hiệu quả.
+                        </p>
+                    </div>
+
+                    <div class="section-box">
+                        <h3>SẢN PHẨM LIÊN QUAN</h3>
+                        <div class="related-grid" id="relatedProductsGrid"></div>
+                    </div>
+                `;
+
+                // Render sản phẩm liên quan cùng danh mục
+                loadRelatedProducts(products, currentProduct.category, currentProduct.id);
+
+            } catch (err) {
+                console.error("Lỗi tải chi tiết:", err);
+            }
+        }
+
+        function selectSize(btn, size) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedSize = size;
+        }
+
+        function formatMoney(num) {
+            return Math.round(num || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function addToCartDetail() {
+            if (!currentProduct) return;
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            const cartItemKey = currentProduct.id + (selectedSize ? `-${selectedSize}` : '');
+            let existing = cart.find(i => (i.id + (i.size ? `-${i.size}` : '')) === cartItemKey);
+
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    id: currentProduct.id,
+                    name: currentProduct.name + (selectedSize ? ` [Size: ${selectedSize}]` : ''),
+                    price: currentProduct.sale_percent > 0 ? Math.round(currentProduct.price * (100 - currentProduct.sale_percent) / 100) : currentProduct.price,
+                    image: currentProduct.image,
+                    category: currentProduct.category,
+                    size: selectedSize,
+                    qty: 1
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert("Đã thêm sản phẩm vào giỏ hàng thành công!");
+        }
+
+        function buyNowDetail() {
+            addToCartDetail();
+            window.location.href = '/'; // Hoặc chuyển hướng đến trang thanh toán nếu có
+        }
+
+        function loadRelatedProducts(allProducts, category, currentId) {
+            const related = allProducts.filter(p => p.category === category && p.id !== currentId).slice(0, 4);
+            const grid = document.getElementById('relatedProductsGrid');
+            
+            grid.innerHTML = related.map(p => `
+                <div style="background:#0f172a; padding:15px; border-radius:10px; border:1px solid #334155; cursor:pointer;" onclick="window.location.href='product.html?id=${p.id}'">
+                    <img src="${p.image}" alt="${p.name}" style="width:100%; height:140px; object-fit:contain; background:#fff; border-radius:8px; padding:5px;">
+                    <div style="font-size:12px; color:#94a3b8; margin-top:8px;">${p.brand}</div>
+                    <div style="font-size:14px; font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:4px;">${p.name}</div>
+                    <div style="color:#f97316; font-weight:800; margin-top:6px;">${formatMoney(p.price)} đ</div>
+                </div>
+            `).join('');
+        }
+
+        window.onload = loadProductDetail;
+    </script>
+</body>
+</html>

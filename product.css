@@ -1,0 +1,123 @@
+.product-detail-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    color: #fff;
+}
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #334155;
+}
+@media (max-width: 768px) {
+    .detail-grid { grid-template-columns: 1fr; }
+}
+.detail-image-box img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+}
+.detail-info h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+.detail-meta {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+.detail-meta span { color: #38bdf8; font-weight: 600; }
+.detail-price-box {
+    background: #0f172a;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.detail-price {
+    font-size: 26px;
+    font-weight: 800;
+    color: #f97316;
+}
+.detail-old-price {
+    font-size: 16px;
+    color: #64748b;
+    text-decoration: line-through;
+}
+.option-group {
+    margin-bottom: 20px;
+}
+.option-label {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+.size-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.size-btn {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.size-btn.active, .size-btn:hover {
+    border-color: #f97316;
+    background: #f97316;
+}
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+.action-buttons button {
+    flex: 1;
+    padding: 14px;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+}
+.btn-buy-now { background: #f97316; color: #fff; }
+.btn-add-cart { background: #3b82f6; color: #fff; }
+
+.section-box {
+    background: #1e293b;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #334155;
+}
+.section-box h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #f97316;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 10px;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}

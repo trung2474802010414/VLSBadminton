@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 os.chdir(BASE_DIR)
 
-from database import DB_NAME, admins_col, bank_col, init_db, orders_col, products_col
+from database import DB_NAME, admins_col, bank_col, init_db, orders_col, products_col, users_col
 
 HOST = "localhost"
 PORT = 8000
@@ -19,6 +19,21 @@ PORT = 8000
 def get_next_id(col):
     last = col.find_one(sort=[("id", -1)])
     return (last["id"] + 1) if last and "id" in last else 1
+
+
+def seed_database_from_json():
+    """Tự động nạp 100 sản phẩm từ products.json vào MongoDB nếu collection đang trống"""
+    if products_col.count_documents({}) == 0:
+        json_path = os.path.join(BASE_DIR, "products.json")
+        if os.path.exists(json_path):
+            try:
+                with open(json_path, "r", encoding="utf-8") as f:
+                    products_data = json.load(f)
+                if products_data:
+                    products_col.insert_many(products_data)
+                    print(f"📦 Đã tự động seed thành công {len(products_data)} sản phẩm từ products.json vào MongoDB!")
+            except Exception as e:
+                print(f"⚠️ Không thể đọc file products.json để seed: {e}")
 
 
 class BadmintonShopHandler(BaseHTTPRequestHandler):
@@ -37,36 +52,37 @@ class BadmintonShopHandler(BaseHTTPRequestHandler):
         parsed_url = urlparse(self.path)
         path = parsed_url.path
         query_params = parse_qs(parsed_url.query)
-
+    
         if path == "/":
-            with open("index.html", "r", encoding="utf-8") as f:
+            file_path = os.path.join(BASE_DIR, "index.html")
+            with open(file_path, "r", encoding="utf-8") as f:
                 self._send_response(f.read(), 200, "text/html")
-
+        elif path == "/login":
+            file_path = os.path.join(BASE_DIR, "login.html")
+            with open(file_path, "r", encoding="utf-8") as f:
+                self._send_response(f.read(), 200, "text/html")
         elif path == "/admin":
-            with open("admin.html", "r", encoding="utf-8") as f:
+            file_path = os.path.join(BASE_DIR, "admin.html")
+            with open(file_path, "r", encoding="utf-8") as f:
+                self._send_response(f.read(), 200, "text/html")
+        elif path == "/product.html":
+            file_path = os.path.join(BASE_DIR, "product.html")
+            with open(file_path, "r", encoding="utf-8") as f:
                 self._send_response(f.read(), 200, "text/html")
 
-        elif path.endswith(".jsx"):
-            file_path = path.lstrip("/")
+        elif path.endswith((".jsx", ".css", ".js", ".json")):
+            file_path = os.path.join(BASE_DIR, path.lstrip("/"))
             if os.path.exists(file_path):
-                with open(file_path, "r", encoding="utf-8") as f:
-                    self._send_response(f.read(), 200, "application/javascript")
-            else:
-                self._send_response("404 Not Found", 404, "text/plain")
+                content_type = "text/plain"
+                if path.endswith((".jsx", ".js")):
+                    content_type = "application/javascript"
+                elif path.endswith(".css"):
+                    content_type = "text/css"
+                elif path.endswith(".json"):
+                    content_type = "application/json"
 
-        elif path.endswith(".css"):
-            file_path = path.lstrip("/")
-            if os.path.exists(file_path):
                 with open(file_path, "r", encoding="utf-8") as f:
-                    self._send_response(f.read(), 200, "text/css")
-            else:
-                self._send_response("404 Not Found", 404, "text/plain")
-
-        elif path.endswith(".js"):
-            file_path = path.lstrip("/")
-            if os.path.exists(file_path):
-                with open(file_path, "r", encoding="utf-8") as f:
-                    self._send_response(f.read(), 200, "application/javascript")
+                    self._send_response(f.read(), 200, content_type)
             else:
                 self._send_response("404 Not Found", 404, "text/plain")
 
@@ -87,11 +103,9 @@ class BadmintonShopHandler(BaseHTTPRequestHandler):
                 regex = re.compile(re.escape(search), re.IGNORECASE)
                 query["$or"] = [{"name": regex}, {"brand": regex}]
 
-            # Lọc theo 1 Thương hiệu duy nhất
             if brand_param:
                 query["brand"] = {"$regex": re.escape(brand_param), "$options": "i"}
 
-            # Lọc theo Size giày (đã kiểm tra tránh lỗi null)
             if size_param and size_param != "null" and size_param != "":
                 size_regex = re.compile(re.escape(size_param), re.IGNORECASE)
                 size_query = [{"size": size_regex}, {"name": size_regex}]
@@ -100,7 +114,6 @@ class BadmintonShopHandler(BaseHTTPRequestHandler):
                 else:
                     query["$or"] = size_query
 
-            # Lọc theo Mức giá
             if prices_raw:
                 try:
                     prices_list = json.loads(prices_raw)
@@ -136,7 +149,7 @@ class BadmintonShopHandler(BaseHTTPRequestHandler):
         elif path == "/api/bank":
             bank = bank_col.find_one({}, {"_id": 0})
             self._send_response(bank if bank else {}, 200, "application/json")
-
+        
         else:
             self._send_response({"error": "Not found"}, 404, "application/json")
 
@@ -270,16 +283,51 @@ class BadmintonShopHandler(BaseHTTPRequestHandler):
                 200,
                 "application/json",
             )
+        # Thêm API đăng ký khách hàng mới vào database
+        elif self.path == "/api/register":
+            # Kiểm tra xem collection users đã có chưa, nếu chưa dùng tạm chung hoặc tạo mới
+            # Ở đây ta lưu vào collection riêng hoặc chung bảng với khách hàng
+            existing_user = users_col.find_one({"username": data.get("username")})
+            if existing_user:
+                self._send_response({"success": False, "message": "Tên đăng nhập này đã tồn tại!"}, 200, "application/json")
+            else:
+                users_col.insert_one({
+                    "username": data.get("username"),
+                    "password": data.get("password"),
+                    "role": "customer",
+                    "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                })
+                self._send_response({"success": True, "message": "Đăng ký thành công! Hãy đăng nhập."}, 200, "application/json")
 
+        # Cập nhật API đăng nhập chung cho cả Khách và Admin
+        elif self.path == "/api/login":
+            username = data.get("username")
+            password = data.get("password")
+
+            # 1. Kiểm tra xem có phải Admin không
+            admin = admins_col.find_one({"username": username, "password": password})
+            if admin:
+                self._send_response({"success": True, "role": "admin", "redirect": "/admin"}, 200, "application/json")
+                return
+
+            # 2. Kiểm tra xem có phải Khách hàng (User) không
+            user = users_col.find_one({"username": username, "password": password})
+            if user:
+                self._send_response({"success": True, "role": "customer", "redirect": "/index.html"}, 200, "application/json")
+                return
+
+            # Nếu sai tài khoản mật khẩu
+            self._send_response({"success": False, "message": "Sai tài khoản hoặc mật khẩu!"}, 200, "application/json")
         else:
             self._send_response({"error": "Not found"}, 404, "application/json")
 
 
 if __name__ == "__main__":
     init_db()
+    seed_database_from_json()  # Tự động nạp sản phẩm từ file json khi khởi động server nếu DB trống
     server = HTTPServer((HOST, PORT), BadmintonShopHandler)
     print("====================================================")
-    print("🏸 SERVER VLSBADMINTON (MONGODB + REACT) ĐÃ CHẠY!")
+    print("🏸 SERVER VLSBADMINTON (MONGODB) ĐÃ CHẠY!")
     print(f"👉 Trang chủ khách hàng: http://{HOST}:{PORT}")
     print(f"👉 Trang quản trị Admin: http://{HOST}:{PORT}/admin")
     print("====================================================")

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập / Đăng Ký - VLSBadminton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background: #0f172a; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .auth-container { background: #1e293b; padding: 35px 40px; border-radius: 20px; border: 1px solid #334155; width: 100%; max-width: 450px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+        .auth-container h2 { text-align: center; margin-bottom: 24px; font-weight: 800; color: #f97316; font-size: 22px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #94a3b8; }
+        .form-group input { width: 100%; padding: 12px 16px; background: #0f172a; border: 1px solid #334155; border-radius: 10px; color: #fff; font-size: 14px; outline: none; transition: 0.2s; }
+        .form-group input:focus { border-color: #f97316; box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15); }
+        .error-msg { font-size: 12px; color: #ef4444; margin-top: 4px; display: none; font-weight: 600; }
+        .btn { width: 100%; padding: 14px; background: #f97316; color: #fff; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 15px; margin-top: 15px; transition: 0.2s; }
+        .btn:hover { background: #ea580c; }
+        .switch-text { text-align: center; margin-top: 20px; font-size: 14px; color: #94a3b8; }
+        .switch-text span { color: #38bdf8; font-weight: 700; cursor: pointer; }
+        .switch-text span:hover { text-decoration: underline; }
+        .toast { position: fixed; top: 20px; right: 20px; background: #10b981; color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: 700; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); animation: slideIn 0.3s ease; }
+        .toast.error { background: #ef4444; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .extra-fields { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="toast-container"></div>
+
+    <div class="auth-container">
+        <h2 id="formTitle">🔐 Đăng Nhập VLSBadminton</h2>
+        
+        <!-- Các trường bổ sung khi Đăng ký -->
+        <div class="form-group extra-fields" id="groupFullName">
+            <label>Họ và tên</label>
+            <input type="text" id="fullname" placeholder="Nhập họ và tên của bạn...">
+            <div class="error-msg" id="errFullName">Họ tên không được để trống</div>
+        </div>
+
+        <div class="form-group extra-fields" id="groupPhone">
+            <label>Số điện thoại</label>
+            <input type="text" id="phone" placeholder="Nhập số điện thoại (10 chữ số)..." maxlength="10">
+            <div class="error-msg" id="errPhone">Số điện thoại không hợp lệ</div>
+        </div>
+
+        <div class="form-group">
+            <label>Tên tài khoản</label>
+            <input type="text" id="username" placeholder="Nhập tài khoản (ít nhất 4 ký tự)...">
+            <div class="error-msg" id="errUsername">Tài khoản ít nhất 4 ký tự và không chứa khoảng trắng</div>
+        </div>
+
+        <div class="form-group">
+            <label>Mật khẩu</label>
+            <input type="password" id="password" placeholder="Nhập mật khẩu (ít nhất 6 ký tự)...">
+            <div class="error-msg" id="errPassword">Mật khẩu phải từ 6 ký tự trở lên</div>
+        </div>
+
+        <div class="form-group extra-fields" id="groupConfirmPwd">
+            <label>Nhập lại mật khẩu</label>
+            <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu xác nhận...">
+            <div class="error-msg" id="errConfirmPwd">Mật khẩu không khớp</div>
+        </div>
+
+        <button class="btn" id="submitBtn" onclick="handleAuth()">ĐĂNG NHẬP</button>
+
+        <div class="switch-text" id="switchText">
+            Chưa có tài khoản? <span onclick="toggleMode()">Đăng ký ngay</span>
+        </div>
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="/" style="color: #64748b; font-size: 13px; text-decoration: none;">← Quay về trang chủ</a>
+        </div>
+    </div>
+
+    <script>
+        let isLoginMode = true;
+
+        function showToast(msg, isError = false) {
+            const container = document.getElementById('toast-container');
+            const t = document.createElement('div');
+            t.className = `toast ${isError ? 'error' : ''}`;
+            t.innerText = msg;
+            container.appendChild(t);
+            setTimeout(() => t.remove(), 3000);
+        }
+
+        function toggleMode() {
+            isLoginMode = !isLoginMode;
+            const title = document.getElementById('formTitle');
+            const btn = document.getElementById('submitBtn');
+            const switchTxt = document.getElementById('switchText');
+            const extraFields = document.querySelectorAll('.extra-fields');
+
+            // Reset lỗi cũ
+            document.querySelectorAll('.error-msg').forEach(e => e.style.display = 'none');
+
+            if (isLoginMode) {
+                title.innerText = "🔐 Đăng Nhập VLSBadminton";
+                btn.innerText = "ĐĂNG NHẬP";
+                switchTxt.innerHTML = 'Chưa có tài khoản? <span onclick="toggleMode()">Đăng ký ngay</span>';
+                extraFields.forEach(el => el.style.display = 'none');
+            } else {
+                title.innerText = "📝 Đăng Ký Tài Khoản Khách Hàng";
+                btn.innerText = "ĐĂNG KÝ";
+                switchTxt.innerHTML = 'Đã có tài khoản? <span onclick="toggleMode()">Đăng nhập ngay</span>';
+                extraFields.forEach(el => el.style.display = 'block');
+            }
+        }
+
+        async function handleAuth() {
+            let isValid = true;
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Ràng buộc Tên tài khoản
+            if (username.length < 4 || /\s/.test(username)) {
+                document.getElementById('errUsername').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('errUsername').style.display = 'none';
+            }
+
+            // Ràng buộc Mật khẩu
+            if (password.length < 6) {
+                document.getElementById('errPassword').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('errPassword').style.display = 'none';
+            }
+
+            // Nếu là chế độ Đăng ký, kiểm tra thêm các trường mở rộng
+            let fullname = '', phone = '';
+            if (!isLoginMode) {
+                fullname = document.getElementById('fullname').value.trim();
+                phone = document.getElementById('phone').value.trim();
+                const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+                if (!fullname) {
+                    document.getElementById('errFullName').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('errFullName').style.display = 'none';
+                }
+
+                // Kiểm tra SĐT hợp lệ (10 chữ số bắt đầu bằng số 0)
+                const phoneRegex = /^0\d{9}$/;
+                if (!phoneRegex.test(phone)) {
+                    document.getElementById('errPhone').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('errPhone').style.display = 'none';
+                }
+
+                // Kiểm tra khớp mật khẩu
+                if (password !== confirmPassword) {
+                    document.getElementById('errConfirmPwd').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('errConfirmPwd').style.display = 'none';
+                }
+            }
+
+            if (!isValid) return;
+
+            if (isLoginMode) {
+                // Xử lý Đăng nhập
+                try {
+                    const res = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, password })
+                    });
+                    const r = await res.json();
+                    
+                    if (r.success) {
+                        showToast("Đăng nhập thành công! Đang chuyển hướng...");
+                        localStorage.setItem('currentUser', username);
+                        localStorage.setItem('role', r.role);
+                        setTimeout(() => { window.location.href = r.redirect; }, 1000);
+                    } else {
+                        showToast(r.message, true);
+                    }
+                } catch (err) {
+                    showToast("Lỗi kết nối server!", true);
+                }
+            } else {
+                // Xử lý Đăng ký
+                try {
+                    const res = await fetch('/api/register', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, password, fullname, phone })
+                    });
+                    const r = await res.json();
+
+                    if (r.success) {
+                        showToast(r.message);
+                        toggleMode(); // Chuyển về màn hình đăng nhập
+                    } else {
+                        showToast(r.message, true);
+                    }
+                } catch (err) {
+                    showToast("Lỗi kết nối server!", true);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
